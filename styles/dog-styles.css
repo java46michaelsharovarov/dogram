@@ -39,7 +39,7 @@ body {
     align-items: center;
 }
 .details-image {
-    width: 70vw;
+    width: 86vw;
     height: 35vh;
     border-radius: 25%;
 }
@@ -121,7 +121,7 @@ footer a {
         justify-content: center;        
     }
     .details-image {
-        width: 60vw;
+        width: 55vw;
         height: 70vh;
     }
     .details-title {
@@ -134,7 +134,7 @@ footer a {
         order: -1;
         max-height: 70vh;
         justify-content: flex-start;
-        padding: 0;
+        padding: 0 2vw 0 0;
         margin: 0;       
     }
     .thumbnails-item {      
@@ -158,7 +158,7 @@ footer a {
         font-size: 2.5rem;        
     }
     .details-image {
-        width: 71vw;
+        width: 50vw;
         height: 80vh;
     }
     .details-title {
@@ -168,6 +168,7 @@ footer a {
     }
     .thumbnails-list {
         max-height: 75vh;
+        padding-right: 2vw;
     }
     .thumbnails-title {
         font-size: 1.2rem;
