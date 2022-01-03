@@ -10,6 +10,5 @@ for (let i = 0; i < anchors.length; i++) {
 }
 function setDetails(anchor){
     detailsImage.setAttribute("src",anchor.getAttribute("href"));
-    let title = anchor.querySelector(".thumbnails-title");    
-    detailsTitle.textContent = title.textContent + " : " + anchor.getAttribute("data-details-title");
+    detailsTitle.textContent = anchor.querySelector(".thumbnails-title").textContent + " : " + anchor.dataset.detailsTitle;
 }
