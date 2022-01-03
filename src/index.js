@@ -1,4 +1,6 @@
 console.log("script launcher");
+let mainContentEl = document.querySelector(".main-content");
+let selectedItem;
 let detailsTitle = document.querySelector(".details-title");
 let detailsImage = document.querySelector(".details-image");
 let anchors = document.querySelectorAll(".thumbnails-anchor");
@@ -6,9 +8,28 @@ for (let i = 0; i < anchors.length; i++) {
     anchors[i].addEventListener("click", function(event){
         event.preventDefault();
         setDetails(anchors[i]);
+        showDetails();
     })
 }
 function setDetails(anchor){
-    detailsImage.setAttribute("src",anchor.getAttribute("href"));
-    detailsTitle.textContent = anchor.querySelector(".thumbnails-title").textContent + " : " + anchor.dataset.detailsTitle;
+    console.log("anchor elements was pressed",anchor);
+    let hrefVolue = anchor.getAttribute("href");
+    detailsImage.setAttribute("src",hrefVolue);
+    anchor.parentElement.classList.add("selected");
+    if (selectedItem && selectedItem != anchor.parentElement){
+        selectedItem.classList.remove("selected");
+    }
+    selectedItem = anchor.parentElement;
+    let thumbnailsTitleSelector = `[href="${hrefVolue}"] .thumbnails-title`;
+    let thumbnailsTitleEl = document.querySelector(thumbnailsTitleSelector);
+    detailsTitle.textContent = `${thumbnailsTitleEl.textContent}: ${anchor.getAttribute("data-details-title")}`;
+}
+function showDetails(){
+    mainContentEl.classList.remove("hidden");
+}
+function hideDetails(){
+    mainContentEl.classList.add("hidden");
+    if (selectedItem){
+        selectedItem.classList.remove("selected");
+    }
 }

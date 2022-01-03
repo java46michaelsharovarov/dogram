@@ -38,6 +38,14 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.hidden .details-container {
+    display: none;
+}
+.hide-button {
+    position: absolute;
+    top: 0;
+    right: 7vw;
+}
 .details-image {
     width: 86vw;
     height: 35vh;
@@ -62,14 +70,30 @@ body {
     padding: 0;
     padding-top: 2.5vh;
 }
+.hidden .thumbnails-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-height: 80vh;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-top: 0;
+}
 .thumbnails-item {
     margin-top: 2vh;
-    margin-left: 2vw;
     border: 1px solid #fff;
     max-width: var(--thumbnails-image-width);
-    min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
     border-radius: 25%;
     overflow: hidden;
+}
+.hidden .thumbnails-item {
+    max-width: 45vw;
+    min-height: 24vh;
+}
+.selected.thumbnails-item {
+    border-radius: 3%;
+    border: 3px solid #fff;
 }
 .thumbnails-anchor {
     text-decoration: none;
@@ -79,7 +103,11 @@ body {
     height: var(--thumbnails-image-height);
     display:block;
     transition: 1s; /* Время эффекта */
-   }
+}
+.hidden .thumbnails-image {
+    width: 45vw;
+    height: 20vh;
+}
 .thumbnails-image:hover {
     transform: scale(1.1); /* Увеличиваем масштаб */
    }
@@ -91,6 +119,11 @@ body {
     font-size: 1.2rem;
     width: var(--thumbnails-image-width);
     height: var(--thumbnails-title-height);
+}
+.hidden .thumbnails-title {
+    font-size: 1.4rem;
+    width: 45vw;
+    height: 4vh;
 }
 .footer-title {
     text-align: center;
@@ -120,6 +153,9 @@ footer a {
     .details-container {
         justify-content: center;        
     }
+    .hide-button {
+        right: 0vw;
+    }
     .details-image {
         width: 55vw;
         height: 70vh;
@@ -137,16 +173,38 @@ footer a {
         padding: 0 2vw 0 0;
         margin: 0;       
     }
+    .hidden .thumbnails-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 80vh;
+        justify-content: center;
+        padding: 0;       
+    }
     .thumbnails-item {      
         margin-left:0;        
         margin-top:0;
+        min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    }
+    .hidden .thumbnails-item {        
+        max-width: 23vw;
+        min-height: 34vh;
+        margin: 10px 10px;
     }
     .thumbnails-item+.thumbnails-item {
         margin-top: 2vh;
     }  
+    .hidden .thumbnails-image {
+        width: 23vw;
+        height: 28vh;
+    }
     .thumbnails-title {        
         font-size: 1rem;        
     } 
+    .hidden .thumbnails-title {
+        font-size: 1.3rem;
+        width: 23vw;
+        height: 7vh;
+    }
 }
 @media (min-width: 900px){
     :root {
@@ -166,11 +224,30 @@ footer a {
         bottom: 4vh;
         font-size: 1.6rem;
     }
+    .hide-button {
+        right: 2vw;
+        top: 4vh;
+    }
     .thumbnails-list {
         max-height: 75vh;
         padding-right: 2vw;
     }
+    .hidden .thumbnails-list {
+        max-height: 77vh;
+    }
+    .hidden .thumbnails-item {
+        max-width: 20vw;
+        min-height: 35vh;
+    }  
+    .hidden .thumbnails-image {
+        width: 20vw;
+        height: 29vh;
+    }  
     .thumbnails-title {
         font-size: 1.2rem;
+    }
+    .hidden .thumbnails-title {
+        font-size: 1.8rem;
+        width: 20vw;
     }
 }
