@@ -1,4 +1,5 @@
 console.log("script launcher");
+let audio = document.querySelector("audio");
 let mainContentEl = document.querySelector(".main-content");
 let selectedItem;
 let detailsTitle = document.querySelector(".details-title");
@@ -26,6 +27,10 @@ function setDetails(anchor){
 }
 function showDetails(){
     mainContentEl.classList.remove("hidden");
+    audio.removeAttribute("muted");
+    setTimeout(function () {audio.addAttribute("muted");},3);
+    detailsImage.parentElement.classList.add("is-tiny");
+    setTimeout(function () {detailsImage.parentElement.classList.remove("is-tiny");});
 }
 function hideDetails(){
     mainContentEl.classList.add("hidden");
